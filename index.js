@@ -69,17 +69,16 @@ function initCall() {
     });
 
   // TODO: Replace the following URL with your own room URL.
- // callFrame.join({ url: "https://lizashul.daily.co/testing3"});
- callFrame.join({url:"https://khk-local.wss.daily.co:8000/hi?domain=liza&customHost=khk-local.wss.daily.co:8000"})
+ callFrame.join({ url: "https://lizashul.daily.co/testing3"});
 }
 
-function setBackground(data) {   
+function setBackground(imgPath) {   
     callFrame.updateInputSettings({
       video: {
         processor: {
           type: "background-image",
           config: {
-            source: data,
+            source: imgPath,
           },
         },
       },
@@ -106,24 +105,8 @@ async function loadBackgrounds() {
         const img = document.createElement("img");
         img.src = imgPath;
 
-        const blob = await fetch(imgPath)
-        .then((res) => {
-            return res.blob();
-        }).then((blob) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(blob);
-            return new Promise(resolve => {
-                reader.onloadend = () => {
-                resolve(reader.result);
-                };
-            });
-        })
-        .catch((err) => {
-            console.error("failed to fetch background image:", err);
-        });
-
         img.onclick = () => {
-          setBackground(blob);
+          setBackground(imgPath);
         };
         img.alt = data.alt;
         bgImages.appendChild(img);
