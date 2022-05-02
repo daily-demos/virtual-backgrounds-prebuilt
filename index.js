@@ -55,6 +55,11 @@ function initCall() {
       position: "fixed",
       width: "500px",
       height: "550px",
+      border: "1px solid #e6eaef",
+      borderRadius: "6px",
+      boxShadow: `0 1px 2px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02),
+      0 4px 8px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.02),
+      0 16px 32px rgba(0, 0, 0, 0.02)`,
     },
   })
     .on("nonfatal-error", (e) => {
@@ -100,15 +105,19 @@ async function loadBackgrounds() {
 
   for (let i = 0; i < backgroundsData.length; i++) {
     const data = backgroundsData[i];
+
+    const btn = document.createElement("button");
+    btn.className = "bg";
     const imgPath = `${window.location.protocol}//${window.location.host}/${backgroundPrefix}/${data.path}`;
 
     const img = document.createElement("img");
     img.src = imgPath;
 
-    img.onclick = () => {
+    btn.onclick = () => {
       setBackground(imgPath);
     };
     img.alt = data.alt;
-    bgImages.appendChild(img);
+    btn.appendChild(img);
+    bgImages.appendChild(btn);
   }
 }
