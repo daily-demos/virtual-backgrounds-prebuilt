@@ -112,11 +112,11 @@ async function loadBackgrounds() {
 
     const img = document.createElement("img");
     img.src = imgPath;
+    img.alt = data.alt;
 
     btn.onclick = () => {
       setBackground(imgPath);
     };
-    img.alt = data.alt;
     btn.appendChild(img);
     bgImages.appendChild(btn);
   }
