@@ -11,15 +11,22 @@
   --font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-header {
+.header-container {
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--grey);
   padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--grey);
   background-color: var(--white);
   width: 100%;
-  position: fixed;
   font-family: var(--font-family);
 }
 
@@ -70,11 +77,13 @@ header .header-section {
   display: flex;
   flex-wrap: wrap;
   margin-top: 60px;
+  justify-content: center;
 }
 
 body {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 #backgrounds {
