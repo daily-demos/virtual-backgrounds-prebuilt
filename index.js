@@ -38,8 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function initBackgrounds() {
-  const backgrounds = document.getElementById("backgrounds");
-  const resetBtn = backgrounds.getElementsByTagName("button")[0];
+  const resetBtn = document.getElementById("reset");
   resetBtn.onclick = () => {
     resetBackground();
   };
